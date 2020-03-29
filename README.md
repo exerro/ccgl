@@ -28,8 +28,9 @@ For documentation and examples, see the [wiki](https://github.com/exerro/ccgl/wi
 # Screenshots
 
 ![Animated logo](https://i.imgur.com/xXTJvIg.gif)
-![HSV](https://i.imgur.com/TST864P.png)
+![Triangles](https://i.imgur.com/TST864P.png)
 ![Colour wheel](https://i.imgur.com/VVnZWDY.png)
+![HSV](https://i.imgur.com/CUTsuvq.png)
 ![UV](https://i.imgur.com/l6ebCaH.png)
 
 # Future developments
