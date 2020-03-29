@@ -1,2 +1,2 @@
 
-shell.run("preprocess -d /ccgl/src -i *.lua -o /ccgl.lua", ...)
+shell.run("/ccgl/bin/preprocess -d /ccgl/src -i *.lua -o /ccgl.lua", ...)
