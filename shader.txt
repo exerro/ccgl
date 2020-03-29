@@ -1,0 +1,127 @@
+
+/* Builtin types: TODO
+
+num
+int
+bool
+sampler         [uniform]
+vec[234]                            -> num[234]
+vec[234]i                           -> int[234]
+vec[234]b                           -> bool[234]
+mat2                                -> vec2[2]
+mat3                                -> vec3[3]
+mat4                                -> vec4[4]
+
+ccgl_position_t [vs out, gs in out] -> vec4
+ccgl_rgba_t     [ps out]            -> vec4
+ccgl_rgb_t      [ps out]            -> vec3
+ccgl_depth_t    [ps in out]         -> num
+ccgl_front_t    [ps in out]         -> bool
+ccgl_coord_t    [ps in]             -> vec2
+
+/* Builtin functions
+
+texel(sampler, vec2): vec4
+radians(num_t): num_t
+degrees(num_t): num_t
+sin(num_t): num_t
+cos(num_t): num_t
+tan(num_t): num_t
+asin(num_t): num_t
+acos(num_t): num_t
+atan(num_t): num_t
+pow(num_t, num_t): num_t
+pow(num_t, num): num_t
+exp(num_t): num_t
+log(num_t): num_t
+exp2(num_t): num_t
+log2(num_t): num_t
+sqrt(num_t): num_t
+isqrt(num_t): num_t // 1/x^2
+abs(num_t): num_t
+sign(num_t): num_t
+floor(num_t): num_t
+ceil(num_t): num_t
+fract(num_t): num_t
+mod(num_t, num_t): num_t
+mod(num_t, num): num_t
+min(num_t, num): num_t
+max(num_t, num): num_t
+clamp(num_t, num, num): num_t
+clamp(num_t, num_t, num_t): num_t
+mix(num_t, num_t, num_t): num_t
+mix(num_t, num_t, num): num_t
+step(num_t, num_t): num_t
+step(num_t, num): num_t
+length(num_t): num
+distance(num_t, num_t): num
+dot(num_t, num_t): num
+cross(vec3, vec3): vec3
+normalise(num_t): num_t
+reflect(num_t, num_t): num_t
+refract(num_t, num_t, num): num_t
+any(bool_t): bool
+all(bool_t): bool
+mcompmult(mat_t, mat_t): mat_t
+transpose(mat_t): mat_t
+? inverse(mat_t): mat_t
+
+vec2(num): vec2
+vec3(num): vec3
+vec4(num): vec4
+
+vec2(num, num): vec2
+vec3(num, num, num): vec3
+vec4(num, num, num): vec4
+vec4(num, num, num, num): vec4
+
+vec3(num, vec2): vec3
+vec3(vec2, num): vec3
+
+vec4(num, num, vec2): vec4
+vec4(num, vec2, num): vec4
+vec4(vec2, num, num): vec4
+vec4(num, vec3): vec4
+vec4(vec3, num): vec4
+vec4(vec3): vec4
+
+mat2(vec2, vec2): mat2
+mat3(vec3, vec3, vec3): mat3
+mat4(vec4, vec4, vec4, vec4): mat4
+
+/* Builtin operators
+
+num_t + num_t : num_t
+num_t - num_t : num_t
+num_t * num_t : num_t
+num_t / num_t : num_t
+num_t ^ num_t : num_t
+any_t == any_t : bool_t
+any_t != any_t : bool_t
+num_t <  num_t : bool_t
+num_t <= num_t : bool_t
+num_t >  num_t : bool_t
+num_t >= num_t : bool_t
+int_t <  int_t : bool_t
+int_t <= int_t : bool_t
+int_t >  int_t : bool_t
+int_t >= int_t : bool_t
+!bool_t        : bool_t
+bool_t && bool_t : bool_t
+bool_t ^^ bool_t : bool_t
+bool_t || bool_t : bool_t
+mat_t * mat_t : mat_t
+mat_t * num_t : num_t
+
+/* Default geometry shader
+
+geometry {
+	in [3] { <vertex shader outputs> }
+	out { <vertex shader outputs> }
+
+	emit { <vertex shader output fields>[0] }
+	   , { <vertex shader output fields>[1] }
+	   , { <vertex shader output fields>[2] }
+}
+
+*/
