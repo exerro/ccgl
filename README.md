@@ -1,4 +1,8 @@
 
+# Please note
+
+This isn't under development at the moment and certainly isn't available for general use. The examples and wiki are more guidelines for my own development and how I want the API to look, and everything should be considered outdated as the codebase is likely far ahead of any docs or examples here. A few of the benchmarks do run though.
+
 # CCGL
 
 ![CCGL Logo](https://i.imgur.com/1ZFZYhs.png)
