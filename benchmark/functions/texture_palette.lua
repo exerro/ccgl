@@ -149,9 +149,9 @@ local function benchmark(duration, f)
 		local texture_draw = ccgl._create_texture(ccgl.texture_format.bfc_int, size[1], size[2])
 		local is_long_compute = palette_size > 8 and texture_height * texture_width > 10000
 
-		function_and_palette_size[1](texture_raw)
+		function_and_palette_size[1](ccgl._object_data(texture_raw))
 		local palette = ccgl._texture_evaluate_palette(texture_raw, palette_size)
-		map_palette(texture_raw, texture_int, palette)
+		map_palette(ccgl._object_data(texture_raw), ccgl._object_data(texture_int), palette)
 		ccgl._texture_int_subpixel_shrink(texture_int, texture_draw)
 
 		for i = 1, #palette, 3 do
@@ -163,7 +163,7 @@ local function benchmark(duration, f)
 
 		return is_long_compute and duration * 2 or duration, is_long_compute and 2 or iterations, function()
 			local palette = ccgl._texture_evaluate_palette(texture_raw, palette_size)
-			map_palette(texture_raw, texture_int, palette)
+			map_palette(ccgl._object_data(texture_raw), ccgl._object_data(texture_int), palette)
 		end
 	end)
 

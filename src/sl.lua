@@ -43,18 +43,6 @@ end
 -- @internal-export
 local sl = {}
 
--- @enum
-sl.texture_type = {
-	-- @enum-member vec4
-	-- @enum-member vec3
-	-- @enum-member vec2
-	-- @enum-member vec1
-	-- @enum-member int
-	-- @enum-member bfc_vec4
-	-- @enum-member bfc_vec3
-	-- @enum-member bfc_int
-}
-
 -- texel_rgba(texture_type.(bfc_)?vec4, uv)
 -- texel_rgb (texture_type.(bfc_)?vec[34], uv)
 -- texel_vec4(texture_type.(bfc_)?vec4, uv)

@@ -53,13 +53,14 @@ local function benchmark(duration)
 		local texture = ccgl._create_texture(format, size[1], size[2])
 
 		if mode == "dirty_alt" then
+			local t = ccgl._object_data(texture)
 			local stride = format == ccgl.texture_format.bfc_int and 2 or 1
-			for i = 1, #texture, stride do
+			for i = 1, #t, stride do
 				if stride == 2 then
-					texture[i] = (1 + (i - 1) / 2 % 2) * ccgl.TEXTURE_FORMAT_BFC_INT_MULTIPLIER
-					texture[i + 1] = 98
+					t[i] = (1 + (i - 1) / 2 % 2) * ccgl.TEXTURE_FORMAT_BFC_INT_MULTIPLIER
+					t[i + 1] = 98
 				else
-					texture[i] = 1 + (i - 1) % 2
+					t[i] = 1 + (i - 1) % 2
 				end
 			end
 		end

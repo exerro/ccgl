@@ -1,3 +1,0 @@
-
--- @internal-export
-local raytracing = {}

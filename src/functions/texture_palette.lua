@@ -4,7 +4,8 @@ local PERCEPTION_SCALER_G = 1
 local PERCEPTION_SCALER_B = 1
 
 -- @export
-local function _texture_evaluate_palette(texture, palette_size, fixed_colours, blacklist, blacklist_threshold)
+local function _texture_evaluate_palette(textureID, palette_size, fixed_colours, blacklist, blacklist_threshold)
+	local texture = ccgl_objects[textureID]
 	local delta1, delta2
 	local format = texture.format
 	local texture_len = texture.width * texture.height

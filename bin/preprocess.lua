@@ -102,7 +102,7 @@ end
 
 if input_file then
 	files_to_read = files_to_read or {}
-	table.insert(files_to_read, input_file)
+	table.insert(files_to_read, 1, input_file)
 end
 
 for i = 1, #files_to_read do
@@ -390,7 +390,8 @@ local function build_region_map(lines)
 	end
 end
 
-for file, contents in pairs(file_contents) do
+for _, file in ipairs(files_to_read) do
+	local contents = file_contents[file]
 	build_region_map(annotate_regions(contents, file))
 	region_offset = region_offset + #contents
 end
@@ -447,4 +448,11 @@ local content = template:gsub("$([%w_]+)", function(name)
 	end
 end)
 
+term.setTextColour(colours.cyan)
+write(#all_internals)
+term.setTextColour(colours.lightGrey)
+print " internal locals"
+write("writing output to ")
+term.setTextColour(colours.cyan)
+print(output_file)
 write_file(output_file, content)

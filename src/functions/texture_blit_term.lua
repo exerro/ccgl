@@ -5,7 +5,9 @@ local FB_COL = 240
 local TEX_BLANK_CHAR = (string_byte or string.byte)(" ")
 
 -- @internal-export
-local function _texture_bfc_int_blit_term(texture, term, dx, dy, cache_texture)
+local function _texture_bfc_int_blit_term(textureID, term, dx, dy, cache_textureID)
+	local texture = ccgl_objects[textureID]
+	local cache_texture = ccgl_objects[cache_textureID]
 	local bc = {}
 	local fc = {}
 	local ch = {}
@@ -97,7 +99,9 @@ local function _texture_bfc_int_blit_term(texture, term, dx, dy, cache_texture)
 end
 
 -- @internal-export
-local function _texture_int_blit_term(texture, term, dx, dy, cache_texture)
+local function _texture_int_blit_term(textureID, term, dx, dy, cache_textureID)
+	local texture = ccgl_objects[textureID]
+	local cache_texture = ccgl_objects[cache_textureID]
 	local bc = {}
 	local tw = texture.width
 	local setCursorPos = term.setCursorPos
@@ -157,10 +161,11 @@ local function _texture_int_blit_term(texture, term, dx, dy, cache_texture)
 end
 
 -- @export
-local function _texture_blit_term(texture, term, dx, dy, cache_texture)
+local function _texture_blit_term(textureID, term, dx, dy, cache_texture)
+	local texture = ccgl_objects[textureID]
 	if texture.format == texture_format.bfc_int then
-		_texture_bfc_int_blit_term(texture, term, dx, dy, cache_texture)
+		_texture_bfc_int_blit_term(textureID, term, dx, dy, cache_texture)
 	else
-		_texture_int_blit_term(texture, term, dx, dy, cache_texture)
+		_texture_int_blit_term(textureID, term, dx, dy, cache_texture)
 	end
 end

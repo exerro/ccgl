@@ -2,7 +2,8 @@
 -- TODO: _alpha variant
 
 -- @export
-local function _texture_fill_rect(texture, x0, y0, w, h, ...)
+local function _texture_fill_rect(textureID, x0, y0, w, h, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local tw, th = texture.width, texture.height
 
@@ -27,7 +28,8 @@ local function _texture_fill_rect(texture, x0, y0, w, h, ...)
 end
 
 -- @export
-local function _texture_outline_rect(texture, x0, y0, w, h, ...)
+local function _texture_outline_rect(textureID, x0, y0, w, h, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local tw, th = texture.width, texture.height
 
@@ -95,7 +97,8 @@ local function _texture_outline_rect(texture, x0, y0, w, h, ...)
 end
 
 -- @export
-local function _texture_hline(texture, x0, y0, w, ...)
+local function _texture_hline(textureID, x0, y0, w, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local tw, th = texture.width, texture.height
 
@@ -115,7 +118,8 @@ local function _texture_hline(texture, x0, y0, w, ...)
 end
 
 -- @export
-local function _texture_vline(texture, x0, y0, h, ...)
+local function _texture_vline(textureID, x0, y0, h, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local tw, th = texture.width, texture.height
 
@@ -136,7 +140,8 @@ local function _texture_vline(texture, x0, y0, h, ...)
 end
 
 -- @export
-local function _texture_set_pixel(texture, x0, y0, ...)
+local function _texture_set_pixel(textureID, x0, y0, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local tw, th = texture.width, texture.height
 
@@ -149,7 +154,8 @@ local function _texture_set_pixel(texture, x0, y0, ...)
 end
 
 -- @export
-local function _texture_write(texture, x0, y0, text, ...)
+local function _texture_write(textureID, x0, y0, text, ...)
+	local texture = ccgl_objects[textureID]
 	local pixel_data, data_length, is_text = texture_pixel_data(texture.format, ...)
 	if not is_text then return end
 	local tw, th = texture.width, texture.height

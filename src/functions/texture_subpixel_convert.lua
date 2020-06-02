@@ -1,6 +1,8 @@
 
 -- @export
-local function _texture_int_subpixel_shrink(source, destination, palette)
+local function _texture_int_subpixel_shrink(sourceID, destinationID, palette)
+	local source = ccgl_objects[sourceID]
+	local destination = ccgl_objects[destinationID]
 	local sw = source.width
 	local dw, dh = destination.width, destination.height
 	local dest_idx = 1
@@ -116,7 +118,7 @@ local function _texture_int_subpixel_shrink(source, destination, palette)
 				local max_col0, max_col1 = col0, nil
 
 				if count1 > 0 then
-					if count1 > max_count0 and max_count0 < max_count1 then
+					if count1 > max_count0 then
 						max_count0 = count1; max_col0 = col1
 					elseif count1 > max_count1 then
 						max_count1 = count1; max_col1 = col1
@@ -164,7 +166,7 @@ local function _texture_int_subpixel_shrink(source, destination, palette)
 					if col3 == max_col1 then ch = ch + 8 end
 					if col4 == max_col1 then ch = ch + 16 end
 
-					destination[dest_idx] = max_col0 * TEXTURE_FORMAT_BFC_INT_MULTIPLIER + max_col1
+					destination[dest_idx] = max_col0 * TEXTURE_FORMAT_BFC_INT_MULTIPLIER + (max_col1 or 0)
 					destination[dest_idx + 1] = ch
 				else
 					error("TODO") -- reduce colour set and draw

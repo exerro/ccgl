@@ -2,7 +2,8 @@
 -- TODO: _alpha variant
 
 -- @export
-local function _texture_fill_poly(texture, points, join_to_start, ...)
+local function _texture_fill_poly(textureID, points, join_to_start, ...)
+	local texture = ccgl_objects[textureID]
 	local tw, th = texture.width, texture.height
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local min_y_all = 100000000
@@ -114,7 +115,8 @@ local function _texture_fill_poly(texture, points, join_to_start, ...)
 end
 
 -- @export
-local function _texture_outline_poly(texture, points, join_to_start, ...)
+local function _texture_outline_poly(textureID, points, join_to_start, ...)
+	local texture = ccgl_objects[textureID]
 	local tw, th = texture.width, texture.height
 	local pixel_data, data_length = texture_pixel_data(texture.format, ...)
 	local min_y_all = 100000000

@@ -1,0 +1,12 @@
+                              Benchmark      int  bfc_int     vec4
+------------------------------------------------------------------
+                       Triangle outline  22166/s  25499/s  21400/s
+  Triangle outline with horizontal edge  29699/s  26766/s  21649/s
+      Triangle outline with left vertex  14933/s  16999/s  13300/s
+                           Quad outline  14599/s  11600/s  12749/s
+                        Octogon outline  12833/s  11799/s  10833/s
+                               Triangle  21949/s  12900/s  10199/s
+          Triangle with horizontal edge  16966/s  21449/s  17833/s
+              Triangle with left vertex  13149/s   9433/s   9749/s
+                                   Quad  11700/s  10299/s   7100/s
+                                Octogon   7699/s   6633/s   4999/s

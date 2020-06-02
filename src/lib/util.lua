@@ -10,6 +10,11 @@ local function errorfn(fmt, n, ...)
 end
 
 -- @internal
+local function blame(fmt, ...)
+	error(fmt:format(...), 3)
+end
+
+-- @internal
 local function check_is_enum(object, enum)
 	for _, v in pairs(enum) do
 		if object == v then
@@ -20,6 +25,6 @@ local function check_is_enum(object, enum)
 end
 
 -- @internal-export
-local function get_ccgl_type(object)
-	return type(object) == "table" and object.__ccgl_type or nil
+local function get_ccgl_type(objectID)
+	return ccgl_types[objectID]
 end

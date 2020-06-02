@@ -1,8 +1,8 @@
        Benchmark  (26 x 20)  (39 x 13)  (51 x 19)  (162 x 80)  (324 x 240)
 --------------------------------------------------------------------------
-  bfc: dirty_alt     2600/s     2500/s     1410/s        95/s         14/s
-  bfc: dirty         5075/s     5620/s     3105/s       275/s         38/s
-  bfc: clean         3840/s     5235/s     3135/s       285/s         47/s
-   bg: dirty_alt     7275/s     7735/s     4285/s       425/s         60/s
-   bg: dirty         5740/s     7140/s     4180/s       370/s         65/s
-   bg: clean         7285/s     7810/s     4835/s       395/s         61/s
+  bfc: dirty_alt     2549/s     2599/s     1400/s        99/s         14/s
+  bfc: dirty         2999/s     5166/s     2299/s       166/s         33/s
+  bfc: clean         2949/s     5399/s     2900/s       249/s         33/s
+   bg: dirty_alt     6299/s     7100/s     4449/s       366/s         49/s
+   bg: dirty         6333/s     7349/s     4266/s       349/s         66/s
+   bg: clean         4649/s     7800/s     4249/s       366/s         49/s

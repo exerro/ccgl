@@ -1,0 +1,13 @@
+                Benchmark       int   bfc_int      vec4
+-------------------------------------------------------
+          Fill rect 10x10   25833/s   24266/s   16149/s
+          Fill rect 20x15   11233/s    9349/s    4866/s
+       Outline rect 10x10   69649/s   64600/s   36399/s
+       Outline rect 20x15   36700/s   25649/s   17366/s
+  Outline rect out-bounds   66099/s   57533/s   40099/s
+        Horizontal line 1   63166/s   52149/s   30066/s
+        Horizontal line 2   68799/s   54366/s   31599/s
+          Vertical line 1  178400/s  121849/s   78833/s
+          Vertical line 2  131399/s  139366/s   83199/s
+              Write short  615666/s  144949/s  578000/s
+               Write long  494099/s   30200/s  407499/s
