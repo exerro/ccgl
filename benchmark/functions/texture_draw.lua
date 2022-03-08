@@ -87,5 +87,5 @@ local function benchmark(duration)
 	ccgl._texture_blit_term(texture, term, texture.width * 3 + 3)
 	print(); print()
 	print_results(results)
-	save_results("ccgl/benchmark/results/functions/texture_draw.txt", results)
+	save_results(results)
 end

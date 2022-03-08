@@ -65,7 +65,7 @@ local function print_results(results)
 end
 
 -- @internal
-local function save_results(file, results)
+local function save_results(results)
 	local colmax = {}
 	local text = {}
 
@@ -90,7 +90,7 @@ local function save_results(file, results)
 	    end
 	end
 
-	local h = io.open(file, "w")
+	local h = io.open(RESULTS_PATH, "w")
 	h:write(table.concat(text))
 	h:close()
 end

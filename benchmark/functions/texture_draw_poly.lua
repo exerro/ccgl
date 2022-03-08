@@ -28,6 +28,12 @@ local function benchmark(duration)
 	local texture_width = 51
 	local texture_height = 19
 
+	for _ = 1, texture_height + 1 do
+		print()
+	end
+
+	local draw_y = select(2, term.getCursorPos()) - texture_height - 1
+
 	duration = tonumber(duration or "1")
 
 	for i = 1, #formats, 2 do
@@ -43,6 +49,8 @@ local function benchmark(duration)
 	end
 
 	local results = run_benchmarks("Benchmark", vlabels, hlabels, function(vlabel, hlabel)
+		term.setCursorPos(1, draw_y)
+		term.clearLine()
 		print("Running $vlabel on $hlabel")
 		local format_data = hlabel_map[hlabel]
 		local function_data = vlabel_map[vlabel]
@@ -60,7 +68,7 @@ local function benchmark(duration)
 
 		if format_data[1]:find "int" then
 			ccgl[function_data[1]](texture, table.unpack(data))
-			ccgl._texture_blit_term(texture, term)
+			ccgl._texture_blit_term(texture, term, 0, draw_y)
 		end
 
 		return duration, iterations,
@@ -74,5 +82,5 @@ local function benchmark(duration)
 	print()
 	print()
 	print_results(results)
-	save_results("ccgl/benchmark/results/functions/texture_draw_poly.txt", results)
+	save_results(results)
 end

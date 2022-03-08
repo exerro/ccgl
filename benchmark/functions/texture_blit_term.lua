@@ -71,5 +71,5 @@ local function benchmark(duration)
 	end)
 
 	print_results(results)
-	save_results("ccgl/benchmark/results/functions/texture_blit_term.txt", results)
+	save_results(results)
 end

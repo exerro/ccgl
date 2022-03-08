@@ -68,5 +68,5 @@ local function benchmark(duration)
 	print()
 	print()
 	print_results(results)
-	save_results("ccgl/benchmark/results/functions/texture_subpixel_convert.txt", results)
+	save_results(results)
 end

@@ -181,5 +181,5 @@ local function benchmark(duration, f)
 	print()
 	print()
 	print_results(results)
-	if f then save_results("ccgl/benchmark/results/functions/texture_palette.txt", results) end
+	if f then save_results(results) end
 end
